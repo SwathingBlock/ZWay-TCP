@@ -1,4 +1,4 @@
 {
-	"m_title" : "Tyrrell TCP Reporter",
+	"m_title" : "ZWAYTCP",
 	"m_descr" : "Publishes the status of devices to TCP Server"
 }

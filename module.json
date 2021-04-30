@@ -5,12 +5,12 @@
     "author": "Tiago Fernandes",
     "homepage": "https://tyrrellproducts.com/",
     "icon": "icon.png",
-    "moduleName": "Tyrrell TCP Reporter",
-    "version": "1.0.0",
+    "moduleName": "ZWAYTCP",
+    "version": "1.3.0",
     "maturity": "beta",
     "repository": {
         "type": "git",
-        "source": https://github.com/Z-Wave-Me/home-automation
+        "source": "https://github.com/Z-Wave-Me/home-automation"
     },
     "defaults" : {
     "title" : "__m_title__",

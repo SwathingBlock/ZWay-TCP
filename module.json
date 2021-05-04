@@ -6,12 +6,8 @@
     "homepage": "https://tyrrellproducts.com/",
     "icon": "icon.png",
     "moduleName": "ZWAYTCP",
-    "version": "1.3.0",
+    "version": "1.4.0",
     "maturity": "beta",
-    "repository": {
-        "type": "git",
-        "source": "https://github.com/Z-Wave-Me/home-automation"
-    },
     "defaults" : {
     "title" : "__m_title__",
     "description" : "__m_descr__"
@@ -20,12 +16,19 @@
         "type": "object",
         "required": false,
         "properties": {
-            "endpoint address": {
+            "url": {
                 "type": "string",
                 "required" : true
             }
         }
     },
-    "options" : {
+    "options": {
+        "fields": {
+            "url": {
+                "label": "__url_label__",
+                "helper": "__url_helper__",
+                "order": 1
+            }
+        }
     }
 }

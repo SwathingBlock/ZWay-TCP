@@ -68,7 +68,7 @@
 
 
 
-        HTZWAYTCPTPGet.prototype.get_url = function (device, value) {
+        ZWAYTCP.prototype.get_url = function (device, value) {
 
             var url = this.config.url // get url property, defined on module.json, 
             url = url.replace("%DEVICE%",device.id);

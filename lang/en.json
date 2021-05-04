@@ -1,5 +1,5 @@
 {
 	"m_title" : "ZWAYTCP",
 	"m_descr" : "Publishes Raised Events of devices to HTTP Server",
-	"__url_label__": "i.e. http://server:8000/event?device=%DEVICE%&state=%VALUE%"
+	"url_label" : "ie http://server:8000/event?device=%DEVICE%&state=%VALUE%"
 }

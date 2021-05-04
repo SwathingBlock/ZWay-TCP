@@ -6,11 +6,15 @@
     "homepage": "https://tyrrellproducts.com/",
     "icon": "icon.png",
     "moduleName": "ZWAYTCP",
-    "version": "1.4.0",
+    "version": "1.6.0",
     "maturity": "beta",
     "defaults" : {
     "title" : "__m_title__",
     "description" : "__m_descr__"
+    },
+    "repository": {
+        "source": "https://github.com/hplato/Zway-HTTPGet",
+        "type": "git"
     },
     "schema" : {
         "type": "object",

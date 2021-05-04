@@ -9,12 +9,15 @@
  * @param {*} id 
  * @param {*} controller 
  */
+        // function ZWAYTCP (id, controller) {
+        //     debugPrint("Initializing ZWAYTCP module");
+        //     ZWAYTCP.super_.call(this, id, controller);
+        // }
+
         function ZWAYTCP (id, controller) {
-            console.log("Initializing ZWAYTCP module");
+            debugPrint("Initializing ZWAYTCP module");
             ZWAYTCP.super_.call(this, id, controller);
         }
-
-
 
         inherits(ZWAYTCP, AutomationModule);
         _module = ZWAYTCP;
@@ -33,7 +36,7 @@
             
 			/*self.controller.devices.on('change:metrics', function(device) { 
 				self.controller.addNotification("critical", deviceId + "" + device.toJSON(), "tcp", "TCP Handler");
-				console.log(device.toJSON());
+				debugPrint(device.toJSON());
 			 });*/
         };
 
@@ -43,7 +46,7 @@
             var self = this;
             self.controller.devices.off("change:metrics:level", self.callback)
             ZWAYTCP.super_.prototype.stop.call(this);
-            console.log("ZWAYTP stopped");
+            debugPrint("ZWAYTP stopped");
         };
 
 
@@ -71,16 +74,16 @@
             url = url.replace("%DEVICE%",device.id);
             url = url.replace("%VALUE%",value);
         
-            console.log(this.config.url+" : "+device.id+" : "+value+" : "+url);
+            debugPrint(this.config.url+" : "+device.id+" : "+value+" : "+url);
         
             var req = {
                 url: url,
                 async: true,
                 success: function(response) {
-                    console.log("Request was successful");
+                    debugPrint("Request was successful");
                     },
                 error: function(response) {
-                    console.log("Can not make request: " + response.statusText); // don't add it to notifications, since it will fill all the notifcations on error
+                    debugPrint("Can not make request: " + response.statusText); // don't add it to notifications, since it will fill all the notifcations on error
                     } 
                 };
         

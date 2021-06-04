@@ -28,11 +28,22 @@
         //definition of the class reference:
         // Initialization method:
         ZWAYTCP.prototype.init = function (config) {
-            ZWAYTCP.super_.prototype.init.call(this, config);
-            var self = this;
+	    debugPrint("####################ZWAYTCP Started######################");
+        ZWAYTCP.super_.prototype.init.call(this, config);
+        var self = this;
 
-            self.callback = _.bind(self.updateDevice, self);
-            self.controller.devices.on("change:metrics:level", self.callback);
+        self.callback = _.bind(self.updateDevice, self);
+	    self.callbackZwaveRegister = _.bind(self.zwaveRegister, self);
+	    self.callbackZwaveUnregister = _.bind(self.zwaveUnregister, self);
+        self.callbackDataBind = _.bind(self.dataBind, self);
+        self.callbackDataUnbind = _.bind(self.dataBind, self);
+        
+        
+        self.controller.devices.on("change:metrics:level", self.callback);
+	    self.controller.on("ZWave.register", self.callbackZwaveRegister);
+ 	    self.controller.on("ZWave.unregister", self.callbackZwaveUnregister);
+         self.controller.on("ZWave.dataBind", self.callbackDataBind);
+         self.controller.on("ZWave.dataUnbindBind", self.callbackDataUnbind);
             
 			/*self.controller.devices.on('change:metrics', function(device) { 
 				self.controller.addNotification("critical", deviceId + "" + device.toJSON(), "tcp", "TCP Handler");
@@ -46,10 +57,34 @@
             var self = this;
             self.controller.devices.off("change:metrics:level", self.callback)
             ZWAYTCP.super_.prototype.stop.call(this);
-            debugPrint("ZWAYTP stopped");
+            debugPrint("######################ZWAYTP stopped#####################");
         };
 
 
+
+    ZWAYTCP.prototype.dataBind = function (data) {
+        var self = this;
+        debugPrint("####dataBind");
+        debugPrint("####" + data);
+    };
+    
+	ZWAYTCP.prototype.dataUnbind = function (data) {
+		var self = this;
+		debugPrint("####dataUnbind");
+        debugPrint("####" + data);
+	};
+
+    ZWAYTCP.prototype.zwaveRegister = function (data) {
+		var self = this;
+        debugPrint("####zwaveRegister");
+        debugPrint("####" + data);
+	};
+
+    ZWAYTCP.prototype.zwaveUnregister = function (data) {
+		var self = this;
+        debugPrint("####zwaveUnregister");
+        debugPrint("####" + data);
+	};
 
         ZWAYTCP.prototype.updateDevice = function (device) {
             var self = this;
